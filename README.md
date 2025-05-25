@@ -6,7 +6,7 @@ Running on a Raspberry Pi with a touchscreen,
 you will be able to launch applications, manage the music you're listening to,
 and control your system audio.
 
-![PiDeck Screenshot](https://pbs.twimg.com/media/GrzEPCxXgAA__vh?format=jpg&name=small)
+![PiDeck Screenshot](./doc/image.png)
 
 ## Installation
 
