@@ -30,9 +30,31 @@ clean:
 
 deps:
 ifeq ($(UNAME_S),Darwin)
-	brew install sdl2 sdl2_ttf
+	@if ! pkg-config --exists sdl2; then \
+		echo "Installing SDL2..."; \
+		brew install sdl2; \
+	else \
+		echo "SDL2 already installed"; \
+	fi
+	@if ! pkg-config --exists SDL2_ttf; then \
+		echo "Installing SDL2_ttf..."; \
+		brew install sdl2_ttf; \
+	else \
+		echo "SDL2_ttf already installed"; \
+	fi
 else
-	sudo apt-get install -y libsdl2-dev libsdl2-ttf-dev
+	@if ! dpkg -s libsdl2-dev >/dev/null 2>&1; then \
+		echo "Installing libsdl2-dev..."; \
+		sudo apt-get install -y libsdl2-dev; \
+	else \
+		echo "libsdl2-dev already installed"; \
+	fi
+	@if ! dpkg -s libsdl2-ttf-dev >/dev/null 2>&1; then \
+		echo "Installing libsdl2-ttf-dev..."; \
+		sudo apt-get install -y libsdl2-ttf-dev; \
+	else \
+		echo "libsdl2-ttf-dev already installed"; \
+	fi
 endif
 
 .PHONY: all clean deps

@@ -7,6 +7,7 @@ typedef struct {
     int active;
     int start_x;
     int last_x;
+    int key_dir;
 } SwipeState;
 
 void swipe_init(SwipeState *swipe);
